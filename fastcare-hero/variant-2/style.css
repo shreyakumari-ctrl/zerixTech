@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: #111a31;
+    background: #ffffff;
+}
+
+
+
+
+.fc-process-hero {
+    min-height: 700px;
+    padding: 85px 0 70px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(22, 139, 88, 0.08),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #f7faff 0%,
+            #ffffff 100%
+        );
+}
+
+
+
+
+.fc-process-label {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    background: #eaf2ff;
+    color: #2165df;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 20px;
+}
+
+
+
+
+.fc-process-hero h1 {
+    font-size: clamp(45px, 6vw, 70px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+
+    font-weight: 800;
+
+    margin-bottom: 22px;
+}
+
+.fc-process-hero h1 span {
+    color: #2165df;
+}
+
+
+
+
+
+.fc-process-description {
+    max-width: 650px;
+    margin: auto;
+
+    color: #657188;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+
+
+.fc-process-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.fc-process-buttons a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+
+    padding: 14px 22px;
+
+    border-radius: 11px;
+
+    transition: 0.3s ease;
+}
+
+.fc-process-primary {
+    color: white;
+    background: #2165df;
+
+    box-shadow: 0 12px 25px rgba(33, 101, 223, 0.2);
+}
+
+.fc-process-primary:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+.fc-process-secondary {
+    color: #111a31;
+    background: white;
+
+    border: 1px solid #e3e8f1;
+}
+
+.fc-process-secondary:hover {
+    color: #2165df;
+    border-color: #2165df;
+}
+
+
+
+
+
+.fc-process-row {
+    margin-top: 65px;
+}
+
+.fc-process-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 28px;
+
+    background: white;
+
+    border: 1px solid #e9edf4;
+    border-radius: 22px;
+
+    box-shadow: 0 15px 40px rgba(17, 26, 49, 0.06);
+
+    transition: 0.3s ease;
+
+    overflow: hidden;
+}
+
+.fc-process-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 22px 50px rgba(17, 26, 49, 0.11);
+}
+
+
+
+
+.fc-number {
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    color: #edf1f7;
+
+    font-size: 50px;
+    font-weight: 800;
+}
+
+
+
+
+.fc-process-icon {
+    position: relative;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #eaf2ff;
+    color: #2165df;
+
+    font-size: 22px;
+
+    margin-bottom: 22px;
+}
+
+.fc-process-icon.green {
+    background: #eaf8f1;
+    color: #168b58;
+}
+
+
+
+
+.fc-process-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+
+
+
+.fc-process-card p {
+    color: #7a8497;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+
+
+.fc-promise {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 35px;
+
+    margin-top: 50px;
+}
+
+.fc-promise div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #657188;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fc-promise i {
+    color: #168b58;
+    font-size: 17px;
+}
+
+
+
+@media (max-width: 767px) {
+
+    .fc-process-hero {
+        padding: 60px 0;
+    }
+
+    .fc-process-hero h1 {
+        font-size: 45px;
+        letter-spacing: -1.5px;
+    }
+
+    .fc-process-row {
+        margin-top: 45px;
+    }
+
+    .fc-promise {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
