@@ -1,604 +1,1894 @@
+/* =========================================================
+   FASTCARE LAUNDRY
+   CONCEPT 03 — SOFT BOOKING / EXPRESS CONCIERGE
+   PREMIUM LIGHT EDITORIAL VERSION
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
 :root {
-  --fc-blue: #2165df;
-  --fc-blue-dark: #164fbd;
-  --fc-green: #168b58;
-  --fc-ink: #111a31;
-  --fc-muted: #657188;
-  --fc-paper: #fbfcf7;
-  --fc-mint: #eaf8f1;
-  --fc-sky: #eaf2ff;
-  --fc-line: rgba(17, 26, 49, 0.1);
-  --fc-white: #ffffff;
-  --fc-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --fc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --blue: #2165df;
+  --blue-dark: #164db7;
+  --blue-light: #edf4ff;
+
+  --green: #168b58;
+  --green-light: #eaf8f1;
+
+  --ink: #071426;
+  --ink-soft: #24344b;
+
+  --muted: #718096;
+  --muted-light: #9aa6b7;
+
+  --white: #ffffff;
+  --cream: #fafbfc;
+
+  --line: rgba(7, 20, 38, 0.09);
+
+  --shadow-soft:
+    0 20px 60px rgba(19, 45, 80, 0.10);
+
+  --shadow-card:
+    0 25px 70px rgba(19, 45, 80, 0.14);
+
+  --radius-xl: 32px;
+  --radius-lg: 22px;
+  --radius-md: 15px;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  min-height: 100%;
-  font-family: var(--fc-font);
-  background: var(--fc-paper);
-  color: var(--fc-ink);
+  min-height: 100vh;
+
   overflow-x: hidden;
+
+  color: var(--ink);
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 76% 30%,
+      rgba(33, 101, 223, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 85%,
+      rgba(22, 139, 88, 0.065),
+      transparent 25%
+    ),
+    #f8fafc;
+
   -webkit-font-smoothing: antialiased;
 }
 
 a {
+  text-decoration: none;
   color: inherit;
 }
 
-.fc-v3-header {
+button {
+  font: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+
+  .fc-v3-header {
   position: fixed;
   top: 18px;
   left: 50%;
-  z-index: 30;
-  width: min(1180px, calc(100% - 32px));
   transform: translateX(-50%);
+
+  width: min(1380px, calc(100% - 40px));
+  min-height: 68px;
+
+  padding: 7px 9px 7px 16px;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 10px 12px 10px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.74);
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 20px 54px rgba(17, 26, 49, 0.09);
-  backdrop-filter: blur(24px);
+
+  gap: 14px;
+
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  border: 1px solid rgba(7, 20, 38, 0.08);
+  border-radius: 100px;
+
+  box-shadow:
+    0 16px 45px rgba(20, 45, 78, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 }
 
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
 .fc-brand-logo {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+
   gap: 10px;
-  text-decoration: none;
+
   flex-shrink: 0;
 }
 
 .fc-logo-mark {
   width: 38px;
   height: 38px;
+
   display: grid;
   place-items: center;
-  border-radius: 13px;
-  background: linear-gradient(135deg, var(--fc-blue), var(--fc-green));
-  color: var(--fc-white);
-  font-size: 14px;
-  font-weight: 900;
+
+  border-radius: 12px;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2165df,
+      #4c8ef0
+    );
+
+  box-shadow:
+    0 8px 22px rgba(33, 101, 223, 0.23);
 }
+
+
 
 .fc-logo-text {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  font-size: 16px;
-  font-weight: 850;
+
+  font-size: 13px;
+  font-weight: 800;
+
   line-height: 1;
 }
 
 .fc-logo-text small {
-  color: var(--fc-green);
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  margin-top: 4px;
+
+  color: var(--muted);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
 }
+
+/* =========================================================
+   FASTCARE MAIN NAVIGATION
+   ========================================================= */
+
+.fc-main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  flex: 1;
+  min-width: 0;
+
+  white-space: nowrap;
+}
+
+.fc-main-nav a {
+  color: #667386;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  transition: color .25s ease;
+}
+
+.fc-main-nav a:hover {
+  color: var(--blue);
+}
+
+
+/* =========================================================
+   LOGIN / SIGN UP
+   ========================================================= */
+
+.fc-nav-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+.fc-login {
+  color: var(--ink);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fc-signup {
+  padding: 10px 16px;
+
+  border-radius: 100px;
+
+  color: #fff;
+  background: var(--blue);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 18px rgba(33, 101, 223, .18);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.fc-signup:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 22px rgba(33, 101, 223, .25);
+}
+
+
+/* =========================================================
+   VARIANT NAV
+   ========================================================= */
 
 .fc-variant-switcher {
   display: flex;
   align-items: center;
-  gap: 6px;
+
+  gap: 3px;
+
   padding: 4px;
-  border-radius: 18px;
-  background: rgba(234, 242, 255, 0.8);
+
+  background: #f3f6fa;
+
+  border-radius: 100px;
+
+  border:
+    1px solid rgba(7, 20, 38, 0.05);
 }
 
 .fc-switcher-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 9px 12px;
-  border-radius: 14px;
-  color: #5b6880;
-  font-size: 12px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: 0.22s var(--fc-ease);
+
+  gap: 7px;
+
+  padding:
+    9px 13px;
+
+  border-radius: 100px;
+
+  color: #7c8797;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  transition:
+    0.3s ease;
 }
 
 .fc-switcher-btn span {
-  color: rgba(17, 26, 49, 0.38);
-  font-size: 10px;
-  font-weight: 900;
+  color: var(--blue);
+
+  font-size: 8px;
+  font-weight: 800;
 }
 
 .fc-switcher-btn:hover {
-  color: var(--fc-ink);
-  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
 }
 
 .fc-switcher-btn.active {
-  color: var(--fc-white);
-  background: var(--fc-blue);
-  box-shadow: 0 12px 26px rgba(33, 101, 223, 0.22);
+  color: var(--ink);
+
+  background: white;
+
+  box-shadow:
+    0 5px 18px rgba(20, 45, 75, 0.08);
 }
 
-.fc-switcher-btn.active span {
-  color: rgba(255, 255, 255, 0.58);
-}
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .fc-hero-v3 {
   position: relative;
+
   min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
   overflow: hidden;
-  background:
-    radial-gradient(circle at 6% 16%, rgba(22, 139, 88, 0.12), transparent 25%),
-    radial-gradient(circle at 82% 12%, rgba(33, 101, 223, 0.13), transparent 29%),
-    linear-gradient(135deg, #fbfcf7 0%, #eef7ff 54%, #f4fbf4 100%);
+
+  isolation: isolate;
+
+  padding:
+    110px 40px 50px;
 }
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
 
 .fc-v3-bg {
   position: absolute;
+
   inset: 0;
-  pointer-events: none;
+
+  z-index: -5;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f8fbff 57%,
+      #f3faf7 100%
+    );
 }
 
-.fc-soft-shape {
+
+/* Fine editorial grid */
+
+.fc-v3-bg::before {
+  content: "";
+
   position: absolute;
-  border-radius: 999px;
-  filter: blur(2px);
-  opacity: 0.82;
+
+  inset: 0;
+
+  opacity: 0.32;
+
+  background-image:
+    linear-gradient(
+      rgba(7, 20, 38, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(7, 20, 38, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 65px 65px;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      black,
+      transparent 82%
+    );
 }
+
+
+/* Large blue shape */
 
 .fc-shape-blue {
-  width: 340px;
-  height: 340px;
-  right: 8%;
-  top: 18%;
-  background: rgba(33, 101, 223, 0.08);
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  right: -260px;
+  top: 80px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(33, 101, 223, 0.13),
+      rgba(33, 101, 223, 0.035) 48%,
+      transparent 70%
+    );
+
+  filter: blur(2px);
 }
 
+
+/* Green shape */
+
 .fc-shape-green {
-  width: 260px;
-  height: 260px;
-  left: 8%;
-  bottom: 10%;
-  background: rgba(22, 139, 88, 0.1);
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  left: -250px;
+  bottom: -280px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(22, 139, 88, 0.11),
+      transparent 68%
+    );
 }
+
+
+/* Decorative line */
 
 .fc-soft-line {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 66%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(17, 26, 49, 0.12), transparent);
+
+  width: 760px;
+  height: 760px;
+
+  right: -160px;
+  top: -130px;
+
+  border:
+    1px solid rgba(33, 101, 223, 0.07);
+
+  border-radius: 50%;
+
+  transform: rotate(-18deg);
 }
+
+.fc-soft-line::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 42px;
+
+  border:
+    1px dashed rgba(22, 139, 88, 0.08);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .fc-v3-container {
-  position: relative;
-  z-index: 2;
-  width: min(1180px, calc(100% - 40px));
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 122px 0 56px;
+  width: min(1210px, 100%);
+
+  margin: auto;
+
   display: grid;
-  grid-template-columns: 0.88fr 1.12fr;
+
+  grid-template-columns:
+    0.86fr
+    1.14fr;
+
   align-items: center;
-  gap: 70px;
+
+  gap: 45px;
+
+  position: relative;
 }
 
+
+/* =========================================================
+   LEFT COPY
+   ========================================================= */
+
 .fc-v3-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  position: relative;
+
+  z-index: 20;
+
+  padding-left: 18px;
 }
+
+
+/* Editorial vertical line */
+
+.fc-v3-copy::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 5px;
+
+  width: 2px;
+  height: 105px;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--blue),
+      #66a2f4,
+      var(--green),
+      transparent
+    );
+}
+
+
+/* Kicker */
 
 .fc-v3-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  width: fit-content;
-  padding: 9px 14px;
-  border: 1px solid rgba(22, 139, 88, 0.14);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  color: var(--fc-green);
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: 0.8px;
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+
+  color: var(--blue);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
   text-transform: uppercase;
 }
 
 .fc-v3-kicker span {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--fc-green);
-  box-shadow: 0 0 0 6px rgba(22, 139, 88, 0.1);
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 0 4px rgba(22, 139, 88, 0.09);
 }
 
+
+/* =========================================================
+   HEADLINE
+   ========================================================= */
+
 .fc-v3-headline {
-  max-width: 670px;
-  font-size: clamp(3.2rem, 5.6vw, 6.5rem);
-  font-weight: 900;
-  line-height: 0.96;
-  letter-spacing: 0;
+  max-width: 580px;
+
+  margin-bottom: 23px;
+
+  color: var(--ink);
+
+  font-size:
+    clamp(48px, 5.3vw, 76px);
+
+  font-weight: 800;
+
+  line-height: 0.97;
+
+  letter-spacing: -0.075em;
 }
 
 .fc-v3-headline span {
   display: block;
-  color: var(--fc-blue);
+
+  background:
+    linear-gradient(
+      100deg,
+      var(--blue) 10%,
+      #4d8df0 48%,
+      var(--green) 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
 }
 
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
 .fc-v3-desc {
-  max-width: 560px;
-  color: var(--fc-muted);
-  font-size: clamp(1rem, 1.25vw, 1.13rem);
-  line-height: 1.76;
+  max-width: 475px;
+
+  margin-bottom: 28px;
+
+  color: var(--muted);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.75;
 }
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
 
 .fc-v3-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 30px;
 }
 
 .fc-v3-btn-primary,
-.fc-v3-btn-whatsapp,
-.fc-card-button {
+.fc-v3-btn-whatsapp {
   min-height: 50px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 850;
-  text-decoration: none;
-  transition: 0.22s var(--fc-ease);
+
+  gap: 9px;
+
+  padding:
+    0 20px;
+
+  border-radius: 100px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .fc-v3-btn-primary {
-  padding: 0 25px;
-  color: var(--fc-white);
-  background: var(--fc-blue);
-  box-shadow: 0 18px 34px rgba(33, 101, 223, 0.24);
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1760e5,
+      #3987ef
+    );
+
+  box-shadow:
+    0 13px 30px rgba(33, 101, 223, 0.22);
+}
+
+.fc-v3-btn-primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 20px 38px rgba(33, 101, 223, 0.27);
 }
 
 .fc-v3-btn-whatsapp {
-  padding: 0 22px;
-  color: var(--fc-green);
-  background: var(--fc-mint);
+  color: var(--green);
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  border:
+    1px solid rgba(22, 139, 88, 0.18);
+
+  box-shadow:
+    0 8px 25px rgba(20, 45, 70, 0.05);
 }
 
-.fc-v3-btn-primary:hover,
-.fc-v3-btn-whatsapp:hover,
-.fc-card-button:hover {
-  transform: translateY(-2px);
+.fc-v3-btn-whatsapp:hover {
+  transform: translateY(-3px);
+
+  background: var(--green-light);
 }
+
+
+/* =========================================================
+   PROOF GRID
+   ========================================================= */
 
 .fc-v3-proof-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 610px;
-  overflow: hidden;
-  border: 1px solid var(--fc-line);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.66);
-  box-shadow: 0 18px 44px rgba(17, 26, 49, 0.06);
-}
-
-.fc-v3-proof-grid div {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 18px;
-  border-right: 1px solid var(--fc-line);
+
+  gap: 0;
+
+  max-width: 460px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(7, 20, 38, 0.08);
 }
 
-.fc-v3-proof-grid div:last-child {
-  border-right: 0;
+.fc-v3-proof-grid > div {
+  min-width: 120px;
+
+  padding-right: 25px;
+
+  margin-right: 25px;
+
+  border-right:
+    1px solid rgba(7, 20, 38, 0.08);
+}
+
+.fc-v3-proof-grid > div:last-child {
+  border: none;
+
+  margin-right: 0;
 }
 
 .fc-v3-proof-grid strong {
-  color: var(--fc-ink);
-  font-size: 1.28rem;
-  font-weight: 900;
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--ink);
+
+  font-size: 15px;
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
 }
 
 .fc-v3-proof-grid span {
-  color: var(--fc-muted);
-  font-size: 12px;
-  font-weight: 750;
+  display: block;
+
+  color: var(--muted-light);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  line-height: 1.4;
 }
+
+
+/* =========================================================
+   RIGHT VISUAL
+   ========================================================= */
 
 .fc-v3-visual {
   position: relative;
-  min-height: 660px;
-  isolation: isolate;
+
+  min-height: 555px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1200px;
 }
+
+
+/* Decorative large circle */
 
 .fc-v3-visual::before {
   content: "";
+
   position: absolute;
-  inset: 9% 0 3% 11%;
-  z-index: -1;
-  border-radius: 54px 54px 140px 54px;
-  background: linear-gradient(135deg, rgba(33, 101, 223, 0.22), rgba(22, 139, 88, 0.18));
-  filter: blur(34px);
-  opacity: 0.9;
+
+  width: 560px;
+  height: 560px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(33, 101, 223, 0.07),
+      rgba(33, 101, 223, 0.025) 48%,
+      transparent 70%
+    );
+
+  border:
+    1px solid rgba(33, 101, 223, 0.08);
+
+  box-shadow:
+    inset 0 0 70px rgba(33, 101, 223, 0.025);
 }
 
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
 .fc-v3-image-wrap {
-  position: absolute;
-  top: 4%;
-  right: 5%;
-  width: 78%;
-  height: 84%;
+  position: relative;
+
+  width: 470px;
+  height: 520px;
+
+  z-index: 5;
+
   overflow: hidden;
-  border: 12px solid var(--fc-white);
-  border-radius: 54px 54px 138px 54px;
-  background: #dce8f4;
-  box-shadow: 0 42px 110px rgba(17, 26, 49, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  transition: transform 0.22s var(--fc-ease);
+
+  border-radius:
+    38px 38px 38px 100px;
+
+  background: #eef3f8;
+
+  border:
+    8px solid rgba(255, 255, 255, 0.82);
+
+  box-shadow:
+    0 35px 90px rgba(22, 48, 82, 0.17),
+    0 10px 30px rgba(22, 48, 82, 0.08),
+    inset 0 1px 0 white;
+
+  transform:
+    rotate(1deg);
+
+  transition:
+    transform 0.7s cubic-bezier(.2,.8,.2,1);
+}
+
+.fc-v3-image-wrap::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.26),
+      transparent 35%,
+      rgba(7,20,38,.08)
+    );
+
+  pointer-events: none;
+}
+
+.fc-v3-image-wrap::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 60px;
+
+  top: 35px;
+  left: 25px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.50),
+      transparent
+    );
+
+  transform: rotate(-28deg);
+
+  filter: blur(7px);
+
+  opacity: .6;
+
+  z-index: 4;
+
+  pointer-events: none;
 }
 
 .fc-v3-photo {
   width: 100%;
   height: 100%;
+
+  display: block;
+
   object-fit: cover;
-  object-position: center;
+
   transform: scale(1.04);
+
+  filter:
+    saturate(.88)
+    contrast(1.04);
+
+  transition:
+    transform 1s cubic-bezier(.2,.8,.2,1),
+    filter .5s ease;
 }
 
-.fc-v3-image-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(17, 26, 49, 0.02), rgba(17, 26, 49, 0.34)),
-    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.5), transparent 30%);
-  pointer-events: none;
+.fc-v3-image-wrap:hover .fc-v3-photo {
+  transform: scale(1.09);
+
+  filter:
+    saturate(1)
+    contrast(1.05);
 }
+
+
+/* =========================================================
+   BOOKING CARD
+   ========================================================= */
 
 .fc-v3-booking-card {
   position: absolute;
-  left: 0;
-  bottom: 8%;
-  width: min(380px, 60%);
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.82);
-  border-radius: 34px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 30px 80px rgba(17, 26, 49, 0.18);
-  backdrop-filter: blur(22px);
-  transition: transform 0.22s var(--fc-ease);
+
+  z-index: 20;
+
+  right: -15px;
+  bottom: 32px;
+
+  width: 280px;
+
+  padding: 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.96),
+      rgba(248,251,255,.90)
+    );
+
+  border:
+    1px solid rgba(7, 20, 38, 0.09);
+
+  border-radius: 23px;
+
+  box-shadow:
+    0 30px 75px rgba(19, 45, 80, 0.16),
+    0 5px 18px rgba(19, 45, 80, 0.07),
+    inset 0 1px 0 white;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  transition:
+    transform .6s cubic-bezier(.2,.8,.2,1);
 }
+
+
+/* Booking top */
 
 .fc-booking-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 18px;
+
+  margin-bottom: 15px;
 }
 
 .fc-booking-top span {
-  color: var(--fc-muted);
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: 1px;
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+
   text-transform: uppercase;
+
+  letter-spacing: .12em;
 }
 
 .fc-booking-top strong {
-  padding: 7px 11px;
-  border-radius: 999px;
-  color: var(--fc-blue);
-  background: var(--fc-sky);
-  font-size: 12px;
-  font-weight: 900;
+  color: var(--blue);
+
+  font-size: 10px;
 }
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
 
 .fc-est-tabs {
   display: grid;
-  gap: 8px;
-  margin-bottom: 18px;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 4px;
+
+  padding: 4px;
+
+  margin-bottom: 15px;
+
+  background:
+    #f1f4f8;
+
+  border-radius: 11px;
 }
 
 .fc-tab {
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12px;
-  border: 1px solid #e6edf5;
-  border-radius: 999px;
-  background: #f7faff;
-  color: var(--fc-muted);
-  font: 850 13px/1 var(--fc-font);
-  cursor: pointer;
-  transition: 0.22s var(--fc-ease);
-}
+  border: none;
 
-.fc-tab:hover {
-  border-color: rgba(33, 101, 223, 0.2);
-  color: var(--fc-ink);
+  padding: 8px 5px;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #8994a5;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    .25s ease;
 }
 
 .fc-tab.active {
-  border-color: rgba(33, 101, 223, 0.2);
-  background: var(--fc-sky);
-  color: var(--fc-blue);
+  color: var(--ink);
+
+  background: white;
+
+  box-shadow:
+    0 4px 12px rgba(20, 45, 75, .07);
 }
 
+
+/* =========================================================
+   BOOKING ROWS
+   ========================================================= */
+
 .fc-booking-list {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 18px;
+  padding:
+    2px 0
+    5px;
 }
 
 .fc-booking-row {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 12px 0;
-  border-top: 1px solid #edf1f6;
+
+  padding: 10px 0;
+
+  border-bottom:
+    1px solid rgba(7, 20, 38, 0.065);
+}
+
+.fc-booking-row:last-child {
+  border-bottom: none;
 }
 
 .fc-booking-row span {
-  color: var(--fc-muted);
-  font-size: 12px;
-  font-weight: 750;
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 600;
 }
 
 .fc-booking-row strong {
-  color: var(--fc-ink);
-  font-size: 12px;
-  font-weight: 900;
-  text-align: right;
-  transition: opacity 0.15s ease;
+  color: var(--ink);
+
+  font-size: 9px;
+  font-weight: 800;
 }
+
+#fc-est-val {
+  transition:
+    opacity .12s ease;
+}
+
+
+/* =========================================================
+   CONFIRM BUTTON
+   ========================================================= */
 
 .fc-card-button {
   width: 100%;
-  color: var(--fc-white);
-  background: var(--fc-ink);
+
+  min-height: 43px;
+
+  margin-top: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue),
+      #4289ef
+    );
+
+  font-size: 9px;
+  font-weight: 800;
+
+  box-shadow:
+    0 10px 25px rgba(33, 101, 223, .20);
+
+  transition:
+    .3s ease;
 }
+
+.fc-card-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 30px rgba(33, 101, 223, .27);
+}
+
+
+/* =========================================================
+   FLOATING CHIPS
+   ========================================================= */
 
 .fc-v3-chip {
   position: absolute;
-  z-index: 4;
+
+  z-index: 25;
+
   display: flex;
   flex-direction: column;
+
   gap: 4px;
-  padding: 12px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.82);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 20px 50px rgba(17, 26, 49, 0.13);
-  backdrop-filter: blur(18px);
+
+  min-width: 140px;
+
+  padding:
+    12px 15px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(255,255,255,.88);
+
+  border:
+    1px solid rgba(7,20,38,.08);
+
+  box-shadow:
+    0 18px 45px rgba(20,45,78,.10);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  animation:
+    floatingChip 5s ease-in-out infinite;
 }
 
 .fc-v3-chip strong {
-  font-size: 12px;
-  font-weight: 900;
+  color: var(--ink);
+
+  font-size: 9px;
+  font-weight: 800;
 }
 
 .fc-v3-chip span {
-  color: var(--fc-muted);
-  font-size: 10px;
-  font-weight: 750;
+  color: var(--muted-light);
+
+  font-size: 7px;
+  font-weight: 600;
 }
 
 .fc-chip-a {
-  top: 13%;
   left: 0;
+  top: 88px;
 }
 
 .fc-chip-b {
-  top: 5%;
-  right: -1%;
+  right: 15px;
+  top: 70px;
+
+  animation-delay: -1.5s;
 }
 
 .fc-chip-c {
-  right: 7%;
-  bottom: 1%;
+  left: 25px;
+  bottom: 40px;
+
+  animation-delay: -3s;
 }
 
-@media (max-width: 1040px) {
-  .fc-v3-container {
-    grid-template-columns: 1fr;
-    gap: 42px;
-    padding-top: 112px;
+@keyframes floatingChip {
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
-  .fc-v3-visual {
-    min-height: 620px;
+  50% {
+    transform: translateY(-7px);
   }
 }
 
-@media (max-width: 720px) {
-  .fc-v3-header {
-    top: 12px;
-    width: calc(100% - 24px);
-  }
 
-  .fc-variant-switcher {
-    display: none;
+/* =========================================================
+   DESKTOP — CURRENT 1366 SCREEN
+   ========================================================= */
+
+@media (min-width: 1000px) and (max-height: 800px) {
+
+  .fc-hero-v3 {
+    padding:
+      94px 32px 38px;
   }
 
   .fc-v3-container {
-    width: calc(100% - 32px);
-    padding-top: 100px;
-    padding-bottom: 36px;
+    grid-template-columns:
+      .86fr
+      1.14fr;
+
+    gap: 25px;
   }
 
   .fc-v3-headline {
-    font-size: clamp(2.7rem, 13vw, 4.35rem);
+    font-size: 61px;
   }
 
-  .fc-v3-actions,
+  .fc-v3-desc {
+    margin-bottom: 22px;
+  }
+
+  .fc-v3-actions {
+    margin-bottom: 23px;
+  }
+
+  .fc-v3-visual {
+    min-height: 530px;
+  }
+
+  .fc-v3-image-wrap {
+    width: 445px;
+    height: 485px;
+  }
+
+  .fc-v3-booking-card {
+    right: -5px;
+    bottom: 27px;
+  }
+
+  .fc-chip-a {
+    left: 4px;
+    top: 72px;
+  }
+
+  .fc-chip-b {
+    right: 0;
+    top: 60px;
+  }
+
+  .fc-chip-c {
+    left: 18px;
+    bottom: 35px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .fc-v3-container {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+  }
+
+  .fc-v3-headline {
+    font-size: 52px;
+  }
+
+  .fc-v3-image-wrap {
+    width: 390px;
+    height: 470px;
+  }
+
+  .fc-v3-booking-card {
+    right: -5px;
+  }
+
+  .fc-v3-chip {
+    transform: scale(.88);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .fc-v3-header {
+    top: 12px;
+
+    width: calc(100% - 20px);
+  }
+
+  .fc-main-nav,
+  .fc-nav-actions {
+  display: none;
+}
+
+  .fc-logo-text {
+    display: none;
+  }
+
+  .fc-variant-switcher {
+    max-width: 75vw;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .fc-variant-switcher::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fc-switcher-btn {
+    flex-shrink: 0;
+
+    padding:
+      8px 9px;
+  }
+
+  .fc-hero-v3 {
+    min-height: auto;
+
+    padding:
+      105px
+      20px
+      55px;
+  }
+
+  .fc-v3-container {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .fc-v3-copy {
+    padding-left: 15px;
+  }
+
+  .fc-v3-headline {
+    font-size:
+      clamp(43px, 11vw, 62px);
+  }
+
+  .fc-v3-desc {
+    font-size: 14px;
+  }
+
+  .fc-v3-visual {
+    min-height: 560px;
+  }
+
+  .fc-v3-image-wrap {
+    width: min(430px, 82vw);
+
+    height: 490px;
+  }
+
+  .fc-v3-booking-card {
+    right: 2%;
+
+    bottom: 25px;
+
+    width: 270px;
+  }
+
+  .fc-chip-a {
+    left: 0;
+    top: 60px;
+  }
+
+  .fc-chip-b {
+    right: 0;
+    top: 40px;
+  }
+
+  .fc-chip-c {
+    left: 0;
+    bottom: 20px;
+  }
+
+  .fc-v3-visual::before {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .fc-v3-header {
+    padding-left: 8px;
+  }
+
+  .fc-v3-kicker {
+    font-size: 8px;
+  }
+
+  .fc-v3-headline {
+    font-size: 43px;
+
+    letter-spacing: -.065em;
+  }
+
+  .fc-v3-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
   .fc-v3-btn-primary,
   .fc-v3-btn-whatsapp {
     width: 100%;
   }
 
   .fc-v3-proof-grid {
-    grid-template-columns: 1fr;
+    justify-content: space-between;
   }
 
-  .fc-v3-proof-grid div {
-    border-right: 0;
-    border-bottom: 1px solid var(--fc-line);
+  .fc-v3-proof-grid > div {
+    min-width: 0;
+
+    padding-right: 12px;
+
+    margin-right: 12px;
   }
 
-  .fc-v3-proof-grid div:last-child {
-    border-bottom: 0;
+  .fc-v3-proof-grid strong {
+    font-size: 13px;
+  }
+
+  .fc-v3-proof-grid span {
+    font-size: 7px;
   }
 
   .fc-v3-visual {
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .fc-v3-image-wrap,
-  .fc-v3-booking-card,
-  .fc-v3-chip {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    transform: none !important;
+    min-height: 500px;
   }
 
   .fc-v3-image-wrap {
-    aspect-ratio: 1 / 1.08;
-    border-radius: 34px;
+    width: 83vw;
+    height: 420px;
+
+    border-radius:
+      28px 28px 28px 70px;
+  }
+
+  .fc-v3-booking-card {
+    width: 245px;
+
+    right: -2px;
+
+    bottom: 10px;
+
+    padding: 15px;
   }
 
   .fc-v3-chip {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    min-width: 115px;
+
+    padding: 9px 11px;
+  }
+
+  .fc-v3-chip strong {
+    font-size: 8px;
+  }
+
+  .fc-v3-chip span {
+    font-size: 6px;
+  }
+
+  .fc-chip-a {
+    left: -5px;
+    top: 42px;
+  }
+
+  .fc-chip-b {
+    right: -4px;
+    top: 28px;
+  }
+
+  .fc-chip-c {
+    left: 0;
+    bottom: 0;
   }
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: .01ms !important;
+
     animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
+
+    transition-duration: .01ms !important;
+  }
+}
+
+
+
+/* =========================================================
+   V3 PREMIUM MOTION LAYER
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. HERO ENTRANCE
+   --------------------------------------------------------- */
+
+.fc-v3-copy {
+  animation: v3CopyReveal 0.9s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.fc-v3-kicker {
+  animation: v3FadeUp .7s .05s ease both;
+}
+
+.fc-v3-headline {
+  animation: v3FadeUp .8s .12s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.fc-v3-desc {
+  animation: v3FadeUp .8s .2s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.fc-v3-actions {
+  animation: v3FadeUp .8s .28s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.fc-v3-proof-grid {
+  animation: v3FadeUp .8s .36s cubic-bezier(.2,.8,.2,1) both;
+}
+
+
+/* ---------------------------------------------------------
+   2. MAIN IMAGE — SOFT FLOAT
+   --------------------------------------------------------- */
+
+.fc-v3-image-wrap {
+  animation:
+    v3ImageEnter 1s .15s cubic-bezier(.2,.8,.2,1) both,
+    v3ImageFloat 6s 1.2s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   3. BOOKING CARD — DIFFERENT FLOAT
+   --------------------------------------------------------- */
+
+.fc-v3-booking-card {
+  animation:
+    v3CardEnter 1s .35s cubic-bezier(.2,.8,.2,1) both,
+    v3CardFloat 5s 1.4s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   4. CHIPS — STAGGERED FLOAT
+   --------------------------------------------------------- */
+
+.fc-chip-a {
+  animation:
+    v3ChipEnter .8s .45s cubic-bezier(.2,.8,.2,1) both,
+    floatingChip 5.2s 1.3s ease-in-out infinite;
+}
+
+.fc-chip-b {
+  animation:
+    v3ChipEnter .8s .55s cubic-bezier(.2,.8,.2,1) both,
+    floatingChip 5.7s 1.5s ease-in-out infinite;
+}
+
+.fc-chip-c {
+  animation:
+    v3ChipEnter .8s .65s cubic-bezier(.2,.8,.2,1) both,
+    floatingChip 6s 1.7s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   5. ORBITAL BACKGROUND ROTATION
+   --------------------------------------------------------- */
+
+.fc-soft-line {
+  animation:
+    v3OrbitRotate 35s linear infinite;
+}
+
+.fc-soft-line::after {
+  animation:
+    v3OrbitRotateReverse 24s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   6. BLUE BACKGROUND LIGHT
+   --------------------------------------------------------- */
+
+.fc-shape-blue {
+  animation:
+    v3AmbientBlue 8s ease-in-out infinite;
+}
+
+.fc-shape-green {
+  animation:
+    v3AmbientGreen 10s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   7. KICKER DOT
+   --------------------------------------------------------- */
+
+.fc-v3-kicker span {
+  animation:
+    v3DotPulse 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+
+@keyframes v3CopyReveal {
+
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes v3FadeUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes v3ImageEnter {
+
+  from {
+    opacity: 0;
+    transform:
+      translateX(35px)
+      rotate(4deg)
+      scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0)
+      rotate(1deg)
+      scale(1);
+  }
+}
+
+
+@keyframes v3ImageFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(1deg);
+  }
+
+  50% {
+    transform:
+      translateY(-8px)
+      rotate(.5deg);
+  }
+}
+
+
+@keyframes v3CardEnter {
+
+  from {
+    opacity: 0;
+    transform:
+      translate(30px, 25px)
+      scale(.94);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+}
+
+
+@keyframes v3CardFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-7px);
+  }
+}
+
+
+@keyframes v3ChipEnter {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(15px)
+      scale(.94);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes v3OrbitRotate {
+  from {
+    transform:
+      rotate(-18deg);
+  }
+
+  to {
+    transform:
+      rotate(342deg);
+  }
+}
+
+
+@keyframes v3OrbitRotateReverse {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(-360deg);
+  }
+}
+
+
+@keyframes v3AmbientBlue {
+
+  0%,
+  100% {
+    transform:
+      scale(1)
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      scale(1.08)
+      translate(-15px, 12px);
+  }
+}
+
+
+@keyframes v3AmbientGreen {
+
+  0%,
+  100% {
+    transform:
+      scale(1);
+  }
+
+  50% {
+    transform:
+      scale(1.1);
+  }
+}
+
+
+@keyframes v3DotPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+
+    box-shadow:
+      0 0 0 4px rgba(22,139,88,.09);
+  }
+
+  50% {
+    transform: scale(1.25);
+
+    box-shadow:
+      0 0 0 7px rgba(22,139,88,.045);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fc-v3-copy,
+  .fc-v3-kicker,
+  .fc-v3-headline,
+  .fc-v3-desc,
+  .fc-v3-actions,
+  .fc-v3-proof-grid,
+  .fc-v3-image-wrap,
+  .fc-v3-booking-card,
+  .fc-v3-chip,
+  .fc-soft-line,
+  .fc-soft-line::after,
+  .fc-shape-blue,
+  .fc-shape-green,
+  .fc-v3-kicker span {
+    animation: none !important;
   }
 }
