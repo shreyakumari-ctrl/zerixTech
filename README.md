@@ -373,32 +373,6 @@ Add your deployed project URL here.
 https://your-live-demo-url.com
 ```
 
----
-
-# 📸 Screenshots
-
-Add screenshots of all three concepts here.
-
-### Concept 01 — Living Object
-
-```text
-[ Add Screenshot Here ]
-```
-
-### Concept 02 — 24H Motion System
-
-```text
-[ Add Screenshot Here ]
-```
-
-### Concept 03 — Express Concierge
-
-```text
-[ Add Screenshot Here ]
-```
-
----
-
 # 💡 Design Thinking
 
 The three concepts were intentionally designed around different user psychology:
